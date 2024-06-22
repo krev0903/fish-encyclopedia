@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('fish_encyclopedias', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('scientific_name');
             $table->text('description');
             $table->string('image_path')->nullable();
             $table->integer('category_id');
