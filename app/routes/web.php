@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\FishEncyclopediaController;
+use App\Models\FishEncyclopedia;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -7,4 +9,4 @@ Route::get('/', function () {
 });
 
 Route::get('/fish-encyclopedia', [FishEncyclopediaController::class, 'index'])->name('index');
-Route::get('/fish-encyclopedia', [FishEncyclopediaController::class, 'registration'])->name('registration');
+Route::get('/registration', [FishEncyclopediaController::class, 'index'])->name('fish-encyclopedia.registration');
