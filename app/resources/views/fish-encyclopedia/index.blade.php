@@ -49,7 +49,7 @@
         </a>
     </section>
 
-    <a class="registration" href="{{ asset('views/fish-encyclopedia/registration.blade.php') }}">登録</a>
+    <a class="registration" href="{{ route('fish-encyclopedia.registration') }}">登録</a>
 
     <footer>
         <small>©Produced by sk</small>

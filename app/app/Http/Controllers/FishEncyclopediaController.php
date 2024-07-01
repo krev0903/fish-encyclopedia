@@ -14,6 +14,7 @@ class FishEncyclopediaController extends Controller
     {
         $categories = Category::all();
         return view('fish-encyclopedia.registration',compact('categories'));
+        // return view('fish-encyclopedia.registration');
     }
 
     /**
