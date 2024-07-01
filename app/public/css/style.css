@@ -1,0 +1,66 @@
+@charset "UTF-8";
+.hero {
+  background-image: url("/images/hero1.jpg");
+  background-size: cover; /* 画像をコンテナに合わせてカバーする */
+  background-repeat: no-repeat; /* 画像を繰り返ししない */
+  height: 800px; /* 要素の高さ */
+  display: flex;
+}
+.hero h1 {
+  color: #333;
+  font-weight: 700;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-size: 140px;
+  margin-top: 50px;
+  margin-left: 50px;
+  -webkit-text-stroke: 2px white;
+}
+.hero img {
+  height: 550px;
+  width: auto;
+  transform: translate(100px, 160px);
+}
+
+a {
+  text-decoration: none;
+  font-size: 50px;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+}
+
+.select {
+  display: flex;
+}
+.select .button {
+  margin: 20px 50px;
+}
+.select .button .flesh img {
+  height: 130px;
+  width: auto;
+}
+.select .button .see img {
+  height: 190px;
+  width: auto;
+}
+.select .button .brackish img {
+  height: 160px;
+  width: auto;
+}
+
+.registration {
+  display: block;
+  text-align: center;
+  background-color: #333;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 5px;
+  margin: 20px 630px;
+}
+
+footer {
+  background-color: #333;
+}
+footer small {
+  color: white;
+}/*# sourceMappingURL=style.css.map */
