@@ -16,12 +16,14 @@
 <body>
     <h1 class="title-r">登録</h1>
     
-    <form class="form" action="" method="POST">
+    <form class="form" action="{{ route('store') }}" method="POST">
+        @csrf
         <table class="table">
             <tr>
                 <td>
                     <label>名前：
                         <input class="input" type="text" id="name">
+                        @if($errors->has('name')) <span class="error">{{$errors->first('name')}}</span>@endif
                     </label>
                 </td>
             </tr>
@@ -30,6 +32,7 @@
                 <td>
                     <label>学名：
                         <input class="input" type="text" id="scientific">
+                        @if($errors->has('scientific_name')) <span class="error">{{$errors->first('scientific_name')}}</span>@endif
                     </label>
                 </td>
             </tr>
@@ -57,6 +60,7 @@
                 <td>
                     <label>説明：
                         <textarea name="" id="detail"></textarea>
+                        @if($errors->has('description')) <span class="error">{{$errors->first('description')}}</span>@endif
                     </label>
                 </td>
             </tr>
@@ -65,12 +69,13 @@
                 <td>
                     <label>値段：
                         <input class="input" type="text" id="price">
+                        <!-- laravel.txtから持ってくる -->
                     </label>
                 </td>
             </tr>
+            <div class="button"><button class="reg" type="submit">登録</button></div>
         </table>
     </form>
-    <div class="button"><button class="reg" type="submit">登録</button></div>
 </body>
 </html>
 名前、学名、画像、説明、カテゴリ、PH、温度、値段
