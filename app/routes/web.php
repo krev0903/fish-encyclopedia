@@ -8,5 +8,9 @@ Route::get('/', function () {
     return view('fish-encyclopedia.index');
 });
 
+
+Route::get('/index', [FishEncyclopediaController::class, 'index'])->name('index');
+
 Route::get('/fish-encyclopedia', [FishEncyclopediaController::class, 'index'])->name('index');
+
 Route::get('/registration', [FishEncyclopediaController::class, 'index'])->name('fish-encyclopedia.registration');

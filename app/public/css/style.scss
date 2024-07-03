@@ -1,6 +1,16 @@
-// body{
-//     background-image: url('/images/bgi.jpg');
-// }
+// base/////////////////////////////////////////////////////////////////////////////
+body{
+    font-size: 15px;
+    line-height: 1.5;
+    color: #333;   
+    font-family: "M PLUS 1p","Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+}
+label,input,textarea,select,button{
+    cursor: pointer;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
 .hero{
     background-image: url('/images/hero1.jpg');
     background-size: cover; /* 画像をコンテナに合わせてカバーする */
@@ -75,5 +85,59 @@ footer{
     background-color: #333;
     small{
         color: #ffff;
+    }
+}
+
+// registration/////////////////////////////////////////////////////
+
+.title-r{//登録の文字
+    font-size: 50px;
+    text-align: center;
+}
+
+.form{
+    font-size: 20px;
+
+    .table{//登録フォーム全体
+        margin: 0 auto;
+        border: 2px solid #7f94af;
+        td{
+            padding: 20px;
+
+            .input{//テキストボックス
+                min-width: 300px;
+                padding: 5px;
+                border-radius: 10px;
+            }
+            .radio{//ラジオ全体
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                
+                .radio-input,
+                .radio-label {
+                    display: inline-block;
+                    margin-right: 15px;
+                }
+            }
+            textarea{//テキストエリア
+                min-width: 300px;
+                min-height: 100px;
+                border-radius: 10px;
+            }
+        }
+        // .pull{}
+    }
+}
+
+.button{//ボタン
+    margin-top: 20px;
+    text-align: center;
+    .reg{
+        color: #ccc;
+        font-size: 30px;
+        font-weight: bold;
+        background-color: #333;
+        border-radius: 10px;
     }
 }
