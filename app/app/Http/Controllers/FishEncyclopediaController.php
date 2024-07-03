@@ -30,7 +30,14 @@ class FishEncyclopediaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string', // '文字のみ' は 'string' に修正
+            'scientific_name' => 'required|alpha', // 'ローマ字のみ' は 'alpha' に修正
+            'description' => 'required|string', // '文字のみ' は 'string' に修正
+            'image_path' => 'required|alpha_dash', // 'ローマ字のみ' は 'alpha_dash' に修正
+            'price' => 'required|numeric', // 'numeric' のままで正しい
+        ]);
+        
     }
 
     /**

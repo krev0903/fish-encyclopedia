@@ -9,7 +9,9 @@ label,input,textarea,select,button{
     cursor: pointer;
 }
 
-
+.error{
+    color: tomato;
+}
 ///////////////////////////////////////////////////////////////////////////////
 .hero{
     background-image: url('/images/hero1.jpg');
