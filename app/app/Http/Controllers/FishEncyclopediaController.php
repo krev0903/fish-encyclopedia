@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\FishEncyclopedia;
 
 class FishEncyclopediaController extends Controller
 {
@@ -38,6 +39,21 @@ class FishEncyclopediaController extends Controller
             'price' => 'required|numeric', // 'numeric' のままで正しい
         ]);
         
+        $result = FishEncyclopedia::create([
+            'category_id' => $request->category,
+            'scientific_name' => $request->scientific_name,
+            'description' => $request->description,
+            'image_path' => $request->image_path,
+            'price' => $request->price,
+        ]);
+
+        if (!empty($result)){
+            session()->flash('flash_message','登録しました。');
+        } else {
+            session()->flash('flash_error_message','登録出来ませんでした。');
+        }
+
+        return redirect('/');
     }
 
     /**
