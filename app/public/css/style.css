@@ -14,6 +14,18 @@ label, input, textarea, select, button {
   color: tomato;
 }
 
+.flash_message {
+  background-color: aquamarine;
+  opacity: 0.4;
+  color: darkgreen;
+}
+
+.flash_error_message {
+  background-color: tomato;
+  opacity: 0.6;
+  color: rgb(59, 0, 0);
+}
+
 .hero {
   background-image: url("/images/hero1.jpg");
   background-size: cover; /* 画像をコンテナに合わせてカバーする */

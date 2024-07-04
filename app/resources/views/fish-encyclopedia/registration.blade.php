@@ -15,6 +15,17 @@
 </head>
 <body>
     <h1 class="title-r">登録</h1>
+
+    @if(session('flash_message'))
+        <div class="flash_message">
+            {{ session('flash_message') }}
+        </div>
+    @endif
+    @if(session('flash_error_message'))
+        <div class="flash_error_message">
+            {{ session('flash_error_message') }}
+        </div>
+    @endif
     
     <form class="form" action="{{ route('store') }}" method="POST">
         @csrf
