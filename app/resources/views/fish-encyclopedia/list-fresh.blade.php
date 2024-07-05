@@ -11,10 +11,14 @@
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
-    <title></title>
+    <title>淡水魚</title>
 </head>
 <body>
-    <h1 class="title"></h1>
+    <h1 class="title">淡水魚</h1>
+
+    @foreach( $fish_encyclopedias as $fish_encyclopedia )
+    <p>{{ $fish_encyclopedia }}</p>
+    @endforeach
     
 </body>
 </html>
