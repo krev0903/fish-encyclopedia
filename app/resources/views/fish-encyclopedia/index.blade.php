@@ -26,7 +26,7 @@
     </div>
 
     <section class="select">
-        <a class="button" href="">
+        <a class="button" href="{{ route('list-fresh') }}">
             <div class="flesh">
                 <div class="name">淡水魚</div>
                 <img src="{{ asset('images/fresh.png') }}" alt="fresh">
@@ -49,7 +49,7 @@
         </a>
     </section>
 
-    <a class="registration" href="{{ route('fish-encyclopedia.registration') }}">登録</a>
+    <a class="registration" href="{{ route('registration') }}">登録</a>
 
     <footer>
         <small>©Produced by sk</small>

@@ -10,5 +10,7 @@ Route::get('/', function () {
 
 
 Route::get('/index', [FishEncyclopediaController::class, 'index'])->name('index');
-Route::get('/registration', [FishEncyclopediaController::class, 'index'])->name('fish-encyclopedia.registration');
+Route::get('/registration', [FishEncyclopediaController::class, 'index'])->name('registration');
+Route::get('/list-fresh', [FishEncyclopediaController::class, 'fresh'])->name('list-fresh');
+// Route::get('/list-fresh', [FishEncyclopediaController::class, 'index'])->name('list-fresh');
 Route::post('/post',[FishEncyclopediaController::class, 'store'])->name('store');

@@ -8,14 +8,26 @@ use App\Models\FishEncyclopedia;
 
 class FishEncyclopediaController extends Controller
 {
+    public function fresh()
+    {
+        $fish_encyclopedias = FishEncyclopedia::with('category')->get();
+        return view('fish-encyclopedia.list-fresh',compact('fish_encyclopedias'));
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+        // return view('fish-encyclopedia.list-fresh');
+
         $categories = Category::all();
+        // $fish_encyclopedias = FishEncyclopedia::with('category')->get();
         return view('fish-encyclopedia.registration',compact('categories'));
-        // return view('fish-encyclopedia.registration');
+        
+        // $fish_encyclopedias = FishEncyclopedia::with('category')->get();
+        // return view('fish-encyclopedia.list-fresh',compact('fish_encyclopedias'));
+
+        
     }
 
     /**
