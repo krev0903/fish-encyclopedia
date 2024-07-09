@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\models\Ph;
+use App\models\Temp;
 use App\Models\FishEncyclopedia;
 
 class FishEncyclopediaController extends Controller
@@ -21,13 +23,13 @@ class FishEncyclopediaController extends Controller
         // return view('fish-encyclopedia.list-fresh');
 
         $categories = Category::all();
+        $phs = ph::all();
+        $temps = temp::all();
         // $fish_encyclopedias = FishEncyclopedia::with('category')->get();
-        return view('fish-encyclopedia.registration',compact('categories'));
+        return view('fish-encyclopedia.registration',compact('categories','phs','temps'));
         
         // $fish_encyclopedias = FishEncyclopedia::with('category')->get();
         // return view('fish-encyclopedia.list-fresh',compact('fish_encyclopedias'));
-
-        
     }
 
     /**
@@ -44,19 +46,20 @@ class FishEncyclopediaController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|string', // '文字のみ' は 'string' に修正
+            'name'            => 'required|string', // '文字のみ' は 'string' に修正
             'scientific_name' => 'required|alpha', // 'ローマ字のみ' は 'alpha' に修正
-            'description' => 'required|string', // '文字のみ' は 'string' に修正
-            'image_path' => 'required|alpha_dash', // 'ローマ字のみ' は 'alpha_dash' に修正
-            'price' => 'required|numeric', // 'numeric' のままで正しい
+            'description'     => 'required|string', // '文字のみ' は 'string' に修正
+            'image_path'      => 'required|alpha_dash', // 'ローマ字のみ' は 'alpha_dash' に修正
+            'price'           => 'required|numeric', // 'numeric' のままで正しい
         ]);
         
         $result = FishEncyclopedia::create([
-            'category_id' => $request->category,
-            'scientific_name' => $request->scientific_name,
-            'description' => $request->description,
-            'image_path' => $request->image_path,
-            'price' => $request->price,
+            'name'            =>$request-> name,
+            'scientific_name' =>$request-> scientific_name,
+            'category_id'     =>$request-> category,            
+            'description'     =>$request-> description,
+            // 'image_path' => $request->image_path,
+            // 'price' => $request->price,
         ]);
 
         if (!empty($result)){
@@ -65,7 +68,7 @@ class FishEncyclopediaController extends Controller
             session()->flash('flash_error_message','登録出来ませんでした。');
         }
 
-        return redirect('/');
+        return redirect('fish-encyclopedia.registration');
     }
 
     /**

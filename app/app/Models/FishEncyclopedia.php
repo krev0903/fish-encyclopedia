@@ -16,9 +16,10 @@ class FishEncyclopedia extends Model
     protected $fillable = [
         'name',      
         'scientific_name',
-        'description',
-        'image_path',
         'category_id',
+        'description',
+        'price',
+        'image_path',
         'product_id',
         'temp_id',
         'ph_id',
