@@ -33,7 +33,7 @@
             <tr>
                 <td>
                     <label>名前：
-                        <input class="input" type="text" id="name">
+                        <input class="input" type="text" id="name" name="name">
                         @if($errors->has('name')) <span class="error">{{$errors->first('name')}}</span>@endif
                     </label>
                 </td>
@@ -42,7 +42,7 @@
             <tr>
                 <td>
                     <label>学名：
-                        <input class="input" type="text" id="scientific">
+                        <input class="input" type="text" id="scientific_name" name="scientific_name">
                         @if($errors->has('scientific_name')) <span class="error">{{$errors->first('scientific_name')}}</span>@endif
                     </label>
                 </td>
@@ -50,13 +50,6 @@
 
             <tr>
                 <td>
-                    <!-- <label for="category">カテゴリー：
-                        <select class="pull" name="category" id="category">
-                            @foreach($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->name }}</option>
-                            @endforeach
-                        </select>
-                    </label> -->
                     <label for="category">カテゴリー：</label>
                     <div class="radio">
                         @foreach($categories as $category)
@@ -69,8 +62,32 @@
 
             <tr>
                 <td>
+                    <label for="temp">水温：
+                        <select class="pull" name="temp" id="temp">
+                            @foreach($temps as $temp)
+                                <option value="{{ $temp->id }}">{{ $temp->name }}</option>
+                            @endforeach
+                        </select>
+                    </label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="ph">PH:
+                        <select class="pull" name="ph" id="ph">
+                            @foreach($phs as $ph)
+                                <option value="{{ $ph->id }}">{{ $ph->name }}</option>
+                            @endforeach
+                        </select>
+                    </label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
                     <label>説明：
-                        <textarea name="" id="detail"></textarea>
+                        <textarea name="description" id="description"></textarea>
                         @if($errors->has('description')) <span class="error">{{$errors->first('description')}}</span>@endif
                     </label>
                 </td>
@@ -79,8 +96,8 @@
             <tr>
                 <td>
                     <label>値段：
-                        <input class="input" type="text" id="price">
-                        <!-- laravel.txtから持ってくる -->
+                        <input class="input" type="text" id="price" name="price">
+                        @if($errors->has('price')) <span class="error">{{$errors->first('price')}}</span>@endif
                     </label>
                 </td>
             </tr>
