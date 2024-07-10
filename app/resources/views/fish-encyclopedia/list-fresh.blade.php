@@ -17,7 +17,7 @@
     <h1 class="title">淡水魚</h1>
 
     @foreach( $fish_encyclopedias as $fish_encyclopedia )
-    <p>{{ $fish_encyclopedia }}</p>
+    <p>{{ $fish_encyclopedia ->name}}</p>
     @endforeach
     
 </body>

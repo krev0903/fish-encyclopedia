@@ -17,12 +17,12 @@ class FishEncyclopedia extends Model
         'name',      
         'scientific_name',
         'category_id',
-        'description',
-        'price',
-        'image_path',
-        'product_id',
         'temp_id',
         'ph_id',
+        'description',
+        'price',
+        // 'image_path',
+        // 'product_id',
     ];
 
     protected $casts = [

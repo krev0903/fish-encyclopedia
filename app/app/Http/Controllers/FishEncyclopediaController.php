@@ -46,20 +46,24 @@ class FishEncyclopediaController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name'            => 'required|string', // '文字のみ' は 'string' に修正
-            'scientific_name' => 'required|alpha', // 'ローマ字のみ' は 'alpha' に修正
-            'description'     => 'required|string', // '文字のみ' は 'string' に修正
-            'image_path'      => 'required|alpha_dash', // 'ローマ字のみ' は 'alpha_dash' に修正
-            'price'           => 'required|numeric', // 'numeric' のままで正しい
+            'name'            => 'required|string',
+            'scientific_name' => 'required|alpha',            
+            'category'     => 'required|integer', // 追加
+            'description'     => 'required|string',
+            'temp'         => 'required|integer', // 追加
+            'ph'           => 'required|integer', // 追加
+            'price'           => 'required|numeric',
         ]);
-        
+              
         $result = FishEncyclopedia::create([
-            'name'            =>$request-> name,
-            'scientific_name' =>$request-> scientific_name,
-            'category_id'     =>$request-> category,            
-            'description'     =>$request-> description,
-            // 'image_path' => $request->image_path,
-            // 'price' => $request->price,
+            'name'            => $request->name,
+            'scientific_name' => $request->scientific_name,
+            'category_id'     => $request->category,
+            'temp_id'         => $request->temp,
+            'ph_id'           => $request->ph,
+            'description'     => $request->description,
+            // 'image_path'      => $request->image_path,
+            'price'           => $request->price,
         ]);
 
         if (!empty($result)){
@@ -68,7 +72,7 @@ class FishEncyclopediaController extends Controller
             session()->flash('flash_error_message','登録出来ませんでした。');
         }
 
-        return redirect('fish-encyclopedia.registration');
+        return redirect()->route('registration');
     }
 
     /**
