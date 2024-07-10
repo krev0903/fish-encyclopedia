@@ -16,9 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('scientific_name');
             $table->text('description');
-            $table->string('image_path')->nullable();
+            $table->decimal('price', 8, 2);
             $table->integer('category_id');
-            $table->integer('product_id');
             $table->integer('temp_id');
             $table->integer('ph_id');
             $table->timestamps();
