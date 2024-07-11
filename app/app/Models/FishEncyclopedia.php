@@ -33,4 +33,10 @@ class FishEncyclopedia extends Model
     public function category() : Relation {
         return $this -> belongsTo(Category::class);
     }
+    public function temp() : Relation {
+        return $this -> belongsTo(Temp::class);
+    }
+    public function ph() : Relation {
+        return $this -> belongsTo(Ph::class);
+    }
 }
