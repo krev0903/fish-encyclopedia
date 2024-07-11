@@ -14,3 +14,4 @@ Route::get('/registration', [FishEncyclopediaController::class, 'index'])->name(
 Route::get('/list-fresh', [FishEncyclopediaController::class, 'fresh'])->name('list-fresh');
 // Route::get('/list-fresh', [FishEncyclopediaController::class, 'index'])->name('list-fresh');
 Route::post('/post',[FishEncyclopediaController::class, 'store'])->name('store');
+Route::get('/fprofile/{id}',[FishEncyclopediaController::class, 'create'])->name('fprofile');
