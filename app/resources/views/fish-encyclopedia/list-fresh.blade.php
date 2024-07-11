@@ -14,11 +14,25 @@
     <title>淡水魚</title>
 </head>
 <body>
-    <h1 class="title">淡水魚</h1>
 
-    @foreach( $fish_encyclopedias as $fish_encyclopedia )
-    <p>{{ $fish_encyclopedia ->name}}</p>
-    @endforeach
+    <section class="fish">
+        <h1 class="title">淡水魚</h1>
+        <ul>
+            <li>
+                @foreach( $fish_encyclopedias as $fish_encyclopedia )
+                <a href="">
+                    <img src="{{ asset('images/guppy.jpg') }}" alt="">
+                    <dl>
+                        <dt>{{ $fish_encyclopedia ->name}}</dt>
+                        <dd class="scientific">学名：{{ $fish_encyclopedia ->scientific_name }}</dd>
+                        <dd class="temp">温度：{{ $fish_encyclopedia ->temp ->name }}</dd>
+                        <dd class="ph">PH　：{{ $fish_encyclopedia ->ph   ->name }}</dd>
+                    </dl>
+                </a>
+                @endforeach
+            </li>
+        </ul>
+    </section>
     
 </body>
 </html>

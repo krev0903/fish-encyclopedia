@@ -138,4 +138,38 @@ footer small {
   font-weight: bold;
   background-color: #333;
   border-radius: 10px;
+}
+
+.fish .title {
+  border: 5px #333;
+  font-size: 50px;
+}
+.fish ul {
+  list-style: none;
+}
+.fish ul li a {
+  margin: 10px;
+  padding: 15px;
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: solid 3px #cfcac7;
+  color: #000;
+  text-decoration: none;
+  align-content: center;
+}
+.fish ul li a img {
+  height: 100px;
+  width: auto;
+}
+.fish ul li a dl {
+  margin-left: 40px;
+}
+.fish ul li a dl dt {
+  font-size: 30px;
+}
+.fish ul li a dl dd {
+  text-align: left;
+  font-size: 20px;
 }/*# sourceMappingURL=style.css.map */

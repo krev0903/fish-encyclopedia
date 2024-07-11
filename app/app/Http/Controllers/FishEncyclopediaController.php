@@ -13,6 +13,8 @@ class FishEncyclopediaController extends Controller
     public function fresh()
     {
         $fish_encyclopedias = FishEncyclopedia::with('category')->get();
+        $fish_encyclopedias = FishEncyclopedia::with('ph')->get();
+        $fish_encyclopedias = FishEncyclopedia::with('temp')->get();
         return view('fish-encyclopedia.list-fresh',compact('fish_encyclopedias'));
     }
     /**
@@ -23,8 +25,8 @@ class FishEncyclopediaController extends Controller
         // return view('fish-encyclopedia.list-fresh');
 
         $categories = Category::all();
-        $phs = ph::all();
-        $temps = temp::all();
+        $phs = Ph::all();
+        $temps = Temp::all();
         // $fish_encyclopedias = FishEncyclopedia::with('category')->get();
         return view('fish-encyclopedia.registration',compact('categories','phs','temps'));
         
