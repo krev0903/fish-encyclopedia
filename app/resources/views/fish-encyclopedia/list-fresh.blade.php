@@ -14,25 +14,26 @@
     <title>淡水魚</title>
 </head>
 <body>
-
-    <section class="fish">
-        <h1 class="title">淡水魚</h1>
-        <ul>
-            <li>
-                @foreach( $fish_encyclopedias as $fish_encyclopedia )
-                <a href="">
-                    <img src="{{ asset('images/guppy.jpg') }}" alt="">
-                    <dl>
-                        <dt>{{ $fish_encyclopedia ->name}}</dt>
-                        <dd class="scientific">学名：{{ $fish_encyclopedia ->scientific_name }}</dd>
-                        <dd class="temp">温度：{{ $fish_encyclopedia ->temp ->name }}</dd>
-                        <dd class="ph">PH　：{{ $fish_encyclopedia ->ph   ->name }}</dd>
-                    </dl>
-                </a>
-                @endforeach
-            </li>
-        </ul>
-    </section>
+    <div class="container">
+        <section class="fish">
+            <h1 class="title">淡水魚</h1>
+            <ul>
+                <li>
+                    @foreach( $fish_encyclopedias as $fish_encyclopedia )
+                    <a href="{{ route('fprofile',['id'=>$fish_encyclopedia->id])}}">
+                        <img src="{{ asset('images/guppy.jpg') }}" alt="">
+                        <dl>
+                            <dt>{{ $fish_encyclopedia ->name}}</dt>
+                            <dd class="scientific">学名：{{ $fish_encyclopedia ->scientific_name }}</dd>
+                            <dd class="temp">温度：{{ $fish_encyclopedia ->temp ->name }}</dd>
+                            <dd class="ph">PH　：{{ $fish_encyclopedia ->ph   ->name }}</dd>
+                        </dl>
+                    </a>
+                    @endforeach
+                </li>
+            </ul>
+        </section>
+    </div>
     
 </body>
 </html>
