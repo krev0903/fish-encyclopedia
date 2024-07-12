@@ -1,0 +1,35 @@
+body {
+  background-color: aqua;
+}
+
+.title {
+  font-size: 80px;
+}
+
+.main {
+  background-color: #fff;
+  margin: 0px 3%;
+}
+.main .profile {
+  margin: 0;
+}
+.main .profile .name {
+  font-size: 80px;
+  text-align: center;
+}
+.main .profile .name .fig {
+  display: flex;
+}
+.main .profile .name .fig ul {
+  font-size: 20px;
+  list-style: none;
+  text-align: left;
+}
+.main .profile .name .fig ul li {
+  border-bottom: 10px #333;
+}
+.main .profile .name .fig .img {
+  height: auto;
+  width: 80%;
+  margin-left: auto;
+}/*# sourceMappingURL=profile.css.map */
