@@ -9,41 +9,38 @@
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
 
-    <title></title>
+    <title>熱帯魚</title>
 </head>
 <body>
 <h1 class="title">熱帯魚</h1>
-    <section>
-        <h1 class="profile">基本情報
-            <figure class="fig">
+<section class="main">
+    <h1 class="profile">
+        <figure class="name">{{$fish_encyclopedia->name}}
+            <figcaption class="fig">
+                <ul>
+                    <li>学名
+                        <div>{{$fish_encyclopedia->scientific_name}}</div>
+                    </li>
+                    <li>カテゴリー
+                        <div>{{$fish_encyclopedia->category->name}}</div>
+                    </li>
+                    <li>PH
+                        <div>{{$fish_encyclopedia->ph->name}}</div>
+                    </li>
+                    <li>温度
+                        <div>{{$fish_encyclopedia->temp->name}}</div>
+                    </li>
+                    <!-- <li>
+                        <div></div>
+                    </li> -->
+                </ul>
                 <img class="img" src="{{ asset('images/guppy.jpg') }}" alt="fish-img">
-                <figcaption class="cap">
-                    <ul>
-                        <li>名前
-                            <div>{{$fish_encyclopedia->name}}</div>
-                        </li>
-                        <li>学名
-                            <div>{{$fish_encyclopedia->scientific_name}}</div>
-                        </li>
-                        <li>カテゴリー
-                            <div>{{$fish_encyclopedia->category->name}}</div>
-                        </li>
-                        <li>PH
-                            <div>{{$fish_encyclopedia->ph->name}}</div>
-                        </li>
-                        <li>温度
-                            <div>{{$fish_encyclopedia->temp->name}}</div>
-                        </li>
-                        <!-- <li>
-                            <div></div>
-                        </li> -->
-                    </ul>
-                </figcaption>
-            </figure>
-        </h1>
-    </section>
+            </figcaption>
+        </figure>
+    </h1>
+</section>
     
     <section>
         <h1 class="career">説明
