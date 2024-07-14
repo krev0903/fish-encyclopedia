@@ -26,7 +26,7 @@
     </div>
 
     <section class="select">
-        <a class="button" href="{{ route('list-fresh') }}">
+        <a class="button" href="{{ route('list_fresh') }}">
             <div class="flesh">
                 <div class="name">淡水魚</div>
                 <img src="{{ asset('images/fresh.png') }}" alt="fresh">

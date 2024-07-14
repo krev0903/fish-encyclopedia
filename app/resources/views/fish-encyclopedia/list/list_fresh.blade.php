@@ -20,7 +20,7 @@
             <ul>
                 <li>
                     @foreach( $fish_encyclopedias as $fish_encyclopedia )
-                    <a href="{{ route('fprofile',['id'=>$fish_encyclopedia->id])}}">
+                    <a href="{{ route('pro_fresh',['id'=>$fish_encyclopedia->id])}}">
                         <img src="{{ asset('storage/' . $fish_encyclopedia->image_path) }}" alt="fish-image">
                         <dl>
                             <dt>{{ $fish_encyclopedia ->name}}</dt>

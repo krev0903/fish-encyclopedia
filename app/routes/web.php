@@ -8,10 +8,7 @@ Route::get('/', function () {
     return view('fish-encyclopedia.index');
 });
 
-
-// Route::get('/index', [FishEncyclopediaController::class, 'index'])->name('index'); いらない？
 Route::get('/registration', [FishEncyclopediaController::class, 'index'])->name('registration');
-Route::get('/list-fresh', [FishEncyclopediaController::class, 'fresh'])->name('list-fresh');
-// Route::get('/list-fresh', [FishEncyclopediaController::class, 'index'])->name('list-fresh');
+Route::get('/list-fresh', [FishEncyclopediaController::class, 'fresh'])->name('list_fresh');
 Route::post('/post',[FishEncyclopediaController::class, 'store'])->name('store');
-Route::get('/fprofile/{id}',[FishEncyclopediaController::class, 'create'])->name('fprofile');
+Route::get('/pro_fresh/{id}',[FishEncyclopediaController::class, 'create'])->name('pro_fresh');
