@@ -4,17 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
-use App\models\Ph;
-use App\models\Temp;
+use App\Models\Ph;
+use App\Models\Temp;
+use App\Models\Food;
+use App\Models\Difficulty;
 use App\Models\FishEncyclopedia;
+use Illuminate\Support\Facades\Storage;
 
 class FishEncyclopediaController extends Controller
 {
     public function fresh()
     {
-        $fish_encyclopedias = FishEncyclopedia::with('category')->get();
-        $fish_encyclopedias = FishEncyclopedia::with('ph')->get();
-        $fish_encyclopedias = FishEncyclopedia::with('temp')->get();
+        $fish_encyclopedias = FishEncyclopedia::with(
+            ['category', 'ph', 'temp', 'food', 'difficulty'])->get();
         return view('fish-encyclopedia.list-fresh',compact('fish_encyclopedias'));
     }
     /**
@@ -24,11 +26,13 @@ class FishEncyclopediaController extends Controller
     {
         // return view('fish-encyclopedia.list-fresh');
 
-        $categories = Category::all();
-        $phs = Ph::all();
-        $temps = Temp::all();
+        $categories   = Category::all();
+        $phs          = Ph::all();
+        $temps        = Temp::all();
+        $foods        = Food::all();
+        $difficulties = Difficulty::all();
         // $fish_encyclopedias = FishEncyclopedia::with('category')->get();
-        return view('fish-encyclopedia.registration',compact('categories','phs','temps'));
+        return view('fish-encyclopedia.registration',compact('categories','phs','temps','foods','difficulties'));
         
         // $fish_encyclopedias = FishEncyclopedia::with('category')->get();
         // return view('fish-encyclopedia.list-fresh',compact('fish_encyclopedias'));
@@ -51,13 +55,23 @@ class FishEncyclopediaController extends Controller
         $validated = $request->validate([
             'name'            => 'required|string',
             'scientific_name' => 'required|alpha',            
-            'category'     => 'required|integer', // 追加
+            'category'        => 'required|integer', // 追加
             'description'     => 'required|string',
-            'temp'         => 'required|integer', // 追加
-            'ph'           => 'required|integer', // 追加
+            'temp'            => 'required|integer', // 追加
+            'ph'              => 'required|integer', // 追加
             'price'           => 'required|numeric',
+            'image_path'      => 'required|file|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'food'            => 'required|integer',
+            'difficulty'      => 'required|integer',
         ]);
-              
+
+        // if ($request->hasFile('image_path')) {
+            $file = $request->file('image_path');
+            $path = $file->store('images', 'public');
+        // } else {
+        //     $path = null;
+        // }
+      
         $result = FishEncyclopedia::create([
             'name'            => $request->name,
             'scientific_name' => $request->scientific_name,
@@ -65,15 +79,17 @@ class FishEncyclopediaController extends Controller
             'temp_id'         => $request->temp,
             'ph_id'           => $request->ph,
             'description'     => $request->description,
-            // 'image_path'      => $request->image_path,
+            'image_path'      => $path,
             'price'           => $request->price,
+            'food_id'         => $request->food,
+            'difficulty_id'   => $request->difficulty,
         ]);
 
         if (!empty($result)){
             session()->flash('flash_message','登録しました。');
         } else {
             session()->flash('flash_error_message','登録出来ませんでした。');
-        }
+        }       
 
         return redirect()->route('registration');
     }
