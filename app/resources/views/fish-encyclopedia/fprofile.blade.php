@@ -32,11 +32,17 @@
                     <li>温度
                         <div>{{$fish_encyclopedia->temp->name}}</div>
                     </li>
+                    <li>餌
+                        <div>{{$fish_encyclopedia->food->name}}</div>
+                    </li>
+                    <li>飼育難易度
+                        <div>{{$fish_encyclopedia->difficulty->name}}</div>
+                    </li>
                     <!-- <li>
                         <div></div>
                     </li> -->
                 </ul>
-                <img class="img" src="{{ asset('images/guppy.jpg') }}" alt="fish-img">
+                <img class="img" src="{{ asset('storage/' . $fish_encyclopedia->image_path) }}" alt="fish-img">
             </figcaption>
         </figure>
     </h1>

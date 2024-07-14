@@ -27,7 +27,7 @@
         </div>
     @endif
     
-    <form class="form" action="{{ route('store') }}" method="POST">
+    <form class="form" action="{{ route('store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <table class="table">
             <tr>
@@ -62,6 +62,18 @@
 
             <tr>
                 <td>
+                    <label for="food">餌：</label>
+                    <div class="checkbox">
+                        @foreach($foods as $food)
+                            <input class="checkbox-input" type="checkbox" name="food" id="food_{{ $food->id }}" value="{{ $food->id }}">
+                            <label class="checkbox-label" for="food_{{ $food->id }}">{{ $food->name }}</label>
+                        @endforeach                    
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
                     <label for="temp">水温：
                         <select class="pull" name="temp" id="temp">
                             @foreach($temps as $temp)
@@ -86,8 +98,20 @@
 
             <tr>
                 <td>
+                    <label for="difficulty">難易度:
+                        <select class="pull" name="difficulty" id="difficulty">
+                            @foreach($difficulties as $difficulty)
+                                <option value="{{ $difficulty->id }}">{{ $difficulty->name }}</option>
+                            @endforeach
+                        </select>
+                    </label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
                     <label>説明：
-                        <textarea name="description" id="description"></textarea>
+                        <textarea name="description" id="description" cols="30"  rows="10"></textarea>
                         @if($errors->has('description')) <span class="error">{{$errors->first('description')}}</span>@endif
                     </label>
                 </td>
@@ -101,9 +125,17 @@
                     </label>
                 </td>
             </tr>
+
+            <tr>
+                <td>
+                    <label>画像：
+                        <input class="image" type="file" id="image_path" name="image_path">
+                        @if($errors->has('image_path')) <span class="error">{{$errors->first('image_path')}}</span>@endif
+                    </label>
+                </td>
+            </tr>
             <div class="button"><button class="reg" type="submit">登録</button></div>
         </table>
     </form>
 </body>
 </html>
-名前、学名、画像、説明、カテゴリ、PH、温度、値段

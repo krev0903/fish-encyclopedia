@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use App\Models\Category;
+use App\Models\Food;
+use App\Models\Difficulty;
 
 class FishEncyclopedia extends Model
 {
@@ -21,8 +23,9 @@ class FishEncyclopedia extends Model
         'ph_id',
         'description',
         'price',
-        // 'image_path',
-        // 'product_id',
+        'image_path',
+        'food_id',
+        'difficulty_id',
     ];
 
     protected $casts = [
@@ -38,5 +41,11 @@ class FishEncyclopedia extends Model
     }
     public function ph() : Relation {
         return $this -> belongsTo(Ph::class);
+    }
+    public function food() : Relation {
+        return $this -> belongsTo(Food::class);
+    }
+    public function difficulty() : Relation {
+        return $this -> belongsTo(Difficulty::class);
     }
 }
