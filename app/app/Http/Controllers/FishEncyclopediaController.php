@@ -15,23 +15,25 @@ class FishEncyclopediaController extends Controller
 {
     public function fresh()
     {
-        $fish_encyclopedias = FishEncyclopedia::with(
-            ['category', 'ph', 'temp', 'food', 'difficulty'])->get();
-        return view('fish-encyclopedia.list-fresh',compact('fish_encyclopedias'));
+        $fish_encyclopedias = FishEncyclopedia::with([
+            'category',
+            'ph',
+            'temp',
+            'food',
+            'difficulty'])->get();
+        return view('fish-encyclopedia.list.list_fresh',compact('fish_encyclopedias'));
     }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        // return view('fish-encyclopedia.list-fresh');
-
         $categories   = Category::all();
         $phs          = Ph::all();
         $temps        = Temp::all();
         $foods        = Food::all();
         $difficulties = Difficulty::all();
-        // $fish_encyclopedias = FishEncyclopedia::with('category')->get();
+
         return view('fish-encyclopedia.registration',compact('categories','phs','temps','foods','difficulties'));
         
         // $fish_encyclopedias = FishEncyclopedia::with('category')->get();
@@ -44,7 +46,7 @@ class FishEncyclopediaController extends Controller
     public function create(string $id)
     {
         $fish_encyclopedia = FishEncyclopedia::find($id);
-        return view('fish-encyclopedia.fprofile',compact('fish_encyclopedia'));
+        return view('fish-encyclopedia.profile.pro_fresh',compact('fish_encyclopedia'));
     }
 
     /**
