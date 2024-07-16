@@ -28,21 +28,21 @@
     </div>
 
     <section class="select">
-        <a class="button" href="{{ route('list_fresh') }}">
+        <a class="button" href="{{ route('fresh') }}">
             <div class="flesh">
                 <div class="name">淡水魚</div>
                 <img src="{{ asset('images/fresh.png') }}" alt="fresh">
             </div>
             
         </a>
-        <a class="button" href="">
+        <a class="button" href="{{ route('see') }}">
             <div class="see">
                 <div class="name">海水魚</div>
                 <img src="{{ asset('images/see.png') }}" alt="see">
             </div>
             
         </a>
-        <a class="button" href="">
+        <a class="button" href="{{ route('brackish') }}">
             <div class="brackish">
                 <div class="name">汽水魚</div>
                 <img src="{{ asset('images/brackish.png') }}" alt="brackish">
