@@ -15,13 +15,19 @@ class FishEncyclopediaController extends Controller
 {
     public function fresh()
     {
-        $fish_encyclopedias = FishEncyclopedia::with([
-            'category',
-            'ph',
-            'temp',
-            'food',
-            'difficulty'])->get();
-        return view('fish-encyclopedia.list.list_fresh',compact('fish_encyclopedias'));
+        $fish_encyclopedias = FishEncyclopedia::where('category_id', '1')->get();
+        return view('fish-encyclopedia.list.fresh', compact('fish_encyclopedias'));
+    }
+
+    public function see()
+    {
+        $fish_encyclopedias = FishEncyclopedia::where('category_id', '2')->get();
+        return view('fish-encyclopedia.list.see', compact('fish_encyclopedias'));
+    }
+    public function brackish()
+    {
+        $fish_encyclopedias = FishEncyclopedia::where('category_id', '3')->get();
+        return view('fish-encyclopedia.list.brackish', compact('fish_encyclopedias'));
     }
     /**
      * Display a listing of the resource.
@@ -35,7 +41,6 @@ class FishEncyclopediaController extends Controller
         $difficulties = Difficulty::all();
 
         return view('fish-encyclopedia.registration',compact('categories','phs','temps','foods','difficulties'));
-        
     }
 
     /**
@@ -65,7 +70,6 @@ class FishEncyclopediaController extends Controller
             'difficulty'      => 'required|integer',
         ]);
 
-        // if ($request->hasFile('image_path')) {
             $file = $request->file('image_path');
             $path = $file->store('images', 'public');
       
