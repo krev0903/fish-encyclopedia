@@ -36,8 +36,6 @@ class FishEncyclopediaController extends Controller
 
         return view('fish-encyclopedia.registration',compact('categories','phs','temps','foods','difficulties'));
         
-        // $fish_encyclopedias = FishEncyclopedia::with('category')->get();
-        // return view('fish-encyclopedia.list-fresh',compact('fish_encyclopedias'));
     }
 
     /**
@@ -70,9 +68,6 @@ class FishEncyclopediaController extends Controller
         // if ($request->hasFile('image_path')) {
             $file = $request->file('image_path');
             $path = $file->store('images', 'public');
-        // } else {
-        //     $path = null;
-        // }
       
         $result = FishEncyclopedia::create([
             'name'            => $request->name,

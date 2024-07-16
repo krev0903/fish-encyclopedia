@@ -14,6 +14,9 @@
 
 </head>
 <body>
+
+    @include('fish-encyclopedia.parts.header')
+
     <h1 class="title-r">登録</h1>
 
     @if(session('flash_message'))

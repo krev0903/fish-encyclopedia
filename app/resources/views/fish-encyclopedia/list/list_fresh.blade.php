@@ -14,6 +14,9 @@
     <title>淡水魚</title>
 </head>
 <body>
+    
+    @include('fish-encyclopedia.parts.header')
+    
     <div class="container">
         <section class="fish">
             <h1 class="title">淡水魚</h1>
