@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\LoginFormRequest;
 use App\Models\Category;
 use App\Models\Ph;
 use App\Models\Temp;
@@ -29,6 +30,10 @@ class FishEncyclopediaController extends Controller
         $fish_encyclopedias = FishEncyclopedia::where('category_id', '3')->get();
         return view('fish-encyclopedia.list.brackish', compact('fish_encyclopedias'));
     }
+    public function login()
+    {
+        return view('fish-encyclopedia.login.login');
+    }
     /**
      * Display a listing of the resource.
      */
@@ -39,7 +44,6 @@ class FishEncyclopediaController extends Controller
         $temps        = Temp::all();
         $foods        = Food::all();
         $difficulties = Difficulty::all();
-
         return view('fish-encyclopedia.registration',compact('categories','phs','temps','foods','difficulties'));
     }
 
@@ -93,6 +97,15 @@ class FishEncyclopediaController extends Controller
         }       
 
         return redirect()->route('registration');
+    }
+    
+    /**
+     * @param App\Http\Requests\LoginFormRequest;
+     * $request
+     */
+    public function send(LoginFormRequest $request)
+    {
+        dd($request->all());
     }
 
     /**

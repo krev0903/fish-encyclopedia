@@ -40,14 +40,14 @@
                 <div class="name">海水魚</div>
                 <img src="{{ asset('images/see.png') }}" alt="see">
             </div>
-            
+
         </a>
+        
         <a class="button" href="{{ route('brackish') }}">
             <div class="brackish">
                 <div class="name">汽水魚</div>
                 <img src="{{ asset('images/brackish.png') }}" alt="brackish">
-            </div>
-            
+            </div>  
         </a>
     </section>
 

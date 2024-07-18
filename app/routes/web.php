@@ -12,5 +12,7 @@ Route::get('/fresh', [FishEncyclopediaController::class, 'fresh'])->name('fresh'
 Route::get('/see', [FishEncyclopediaController::class, 'see'])->name('see');
 Route::get('/brackish', [FishEncyclopediaController::class, 'brackish'])->name('brackish');
 Route::get('/registration', [FishEncyclopediaController::class, 'index'])->name('registration');
-Route::post('/post',[FishEncyclopediaController::class, 'store'])->name('store');
 Route::get('/pro_fresh/{id}',[FishEncyclopediaController::class, 'create'])->name('pro_fresh');
+Route::get('/login', [FishEncyclopediaController::class, 'login'])->name('login');
+Route::post('/post',[FishEncyclopediaController::class, 'store'])->name('store');
+Route::post('/send',[FishEncyclopediaController::class, 'send'])->name('send');
