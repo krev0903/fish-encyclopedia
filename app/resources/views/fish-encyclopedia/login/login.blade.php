@@ -24,6 +24,13 @@
             </ul>
         </div>
       @endif
+
+        @if(session('login_error'))
+        <div class="flash_error_message">
+            {{ session('login_error') }}
+        </div>
+        @endif
+
       <label for="inputEmail" class="sr-only">Email address</label>
       <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
 

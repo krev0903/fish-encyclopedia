@@ -28,13 +28,14 @@
     </div>
 
     <section class="select">
+
         <a class="button" href="{{ route('fresh') }}">
             <div class="flesh">
                 <div class="name">淡水魚</div>
                 <img src="{{ asset('images/fresh.png') }}" alt="fresh">
-            </div>
-            
+            </div>     
         </a>
+
         <a class="button" href="{{ route('see') }}">
             <div class="see">
                 <div class="name">海水魚</div>
@@ -49,6 +50,7 @@
                 <img src="{{ asset('images/brackish.png') }}" alt="brackish">
             </div>  
         </a>
+        
     </section>
 
     <a class="registration" href="{{ route('registration') }}">登録</a>

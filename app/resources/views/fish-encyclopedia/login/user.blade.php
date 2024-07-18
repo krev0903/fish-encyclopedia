@@ -17,7 +17,18 @@
 
     @include('fish-encyclopedia.parts.header')
 
-    <h1 class="title"></h1>
+    <h1 class="title">プロフィール</h1>
+
+    @if(session('login_succsses'))
+        <div class="flash_message">
+            {{ session('login_succsses') }}
+        </div>
+    @endif
+
+    <ul>
+        <li>名前：{{ Auth::user()->name }}</li>
+        <li>メールアドレス：{{ Auth::user()->email }}</li>
+    </ul>
     
 </body>
 </html>
