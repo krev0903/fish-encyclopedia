@@ -11,6 +11,7 @@ use App\Models\Food;
 use App\Models\Difficulty;
 use App\Models\FishEncyclopedia;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class FishEncyclopediaController extends Controller
 {
@@ -33,6 +34,10 @@ class FishEncyclopediaController extends Controller
     public function login()
     {
         return view('fish-encyclopedia.login.login');
+    }
+    public function user()
+    {
+        return view('fish-encyclopedia.login.user');
     }
     /**
      * Display a listing of the resource.
@@ -105,7 +110,16 @@ class FishEncyclopediaController extends Controller
      */
     public function send(LoginFormRequest $request)
     {
-        dd($request->all());
+        $credentials = $request->only('email','password');
+
+        if (Auth::attempt($credentials)){
+            $request->session()->regenerate();
+
+            return redirect()->route('user')->with("login_success","ログインに成功しました！");
+        }
+        return back()->withErrors([
+            'login_error' => 'メールアドレスかパスワードが間違っています。',
+        ]);
     }
 
     /**
