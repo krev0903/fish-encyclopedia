@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\LoginFormRequest;
 use App\Models\Category;
 use App\Models\Ph;
 use App\Models\Temp;
@@ -11,7 +10,6 @@ use App\Models\Food;
 use App\Models\Difficulty;
 use App\Models\FishEncyclopedia;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Auth;
 
 class FishEncyclopediaController extends Controller
 {
@@ -21,24 +19,17 @@ class FishEncyclopediaController extends Controller
         return view('fish-encyclopedia.list.fresh', compact('fish_encyclopedias'));
     }
 
-    public function see()
+    public function sea()
     {
         $fish_encyclopedias = FishEncyclopedia::where('category_id', '2')->get();
-        return view('fish-encyclopedia.list.see', compact('fish_encyclopedias'));
+        return view('fish-encyclopedia.list.sea', compact('fish_encyclopedias'));
     }
     public function brackish()
     {
         $fish_encyclopedias = FishEncyclopedia::where('category_id', '3')->get();
         return view('fish-encyclopedia.list.brackish', compact('fish_encyclopedias'));
     }
-    public function login()
-    {
-        return view('fish-encyclopedia.login.login');
-    }
-    public function user()
-    {
-        return view('fish-encyclopedia.login.user');
-    }
+    
     /**
      * Display a listing of the resource.
      */
@@ -104,24 +95,6 @@ class FishEncyclopediaController extends Controller
         return redirect()->route('registration');
     }
     
-    /**
-     * @param App\Http\Requests\LoginFormRequest;
-     * $request
-     */
-    public function send(LoginFormRequest $request)
-    {
-        $credentials = $request->only('email','password');
-
-        if (Auth::attempt($credentials)){
-            $request->session()->regenerate();
-
-            return redirect()->route('user')->with("login_success","ログインに成功しました！");
-        }
-        return back()->withErrors([
-            'login_error' => 'メールアドレスかパスワードが間違っています。',
-        ]);
-    }
-
     /**
      * Display the specified resource.
      */

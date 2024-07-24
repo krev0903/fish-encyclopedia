@@ -14,6 +14,9 @@
     <title>熱帯魚</title>
 </head>
 <body>
+
+    @include('fish-encyclopedia.parts.header')
+    
 <h1 class="title">熱帯魚</h1>
 <section class="main">
     <h1 class="profile">

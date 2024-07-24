@@ -36,10 +36,10 @@
             </div>     
         </a>
 
-        <a class="button" href="{{ route('see') }}">
-            <div class="see">
+        <a class="button" href="{{ route('sea') }}">
+            <div class="sea">
                 <div class="name">海水魚</div>
-                <img src="{{ asset('images/see.png') }}" alt="see">
+                <img src="{{ asset('images/sea.png') }}" alt="sea">
             </div>
 
         </a>
