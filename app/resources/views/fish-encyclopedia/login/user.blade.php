@@ -19,16 +19,16 @@
 
     <h1 class="title">プロフィール</h1>
 
-    @if(session('login_succsses'))
-        <div class="flash_message">
-            {{ session('login_succsses') }}
-        </div>
-    @endif
+    <x-alert type="message" :session="session('login_success')"/>
 
     <ul>
         <li>名前：{{ Auth::user()->name }}</li>
         <li>メールアドレス：{{ Auth::user()->email }}</li>
     </ul>
     
+    <form action="{{route('logout')" method="POST">
+    @csrf
+        <button>ログアウト</button>
+    </form>
 </body>
 </html>

@@ -40,3 +40,8 @@
     
 </body>
 </html>
+
+
+<x-alert type="message" :session="session('message')"/>
+<x-alert type="error" :session="session('error')"/>
+    

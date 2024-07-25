@@ -19,14 +19,14 @@
 
     <h1 class="title-r">登録</h1>
 
-    @if(session('flash_message'))
-        <div class="flash_message">
-            {{ session('flash_message') }}
+    @if(session('message'))
+        <div class="message">
+            {{ session('message') }}
         </div>
     @endif
-    @if(session('flash_error_message'))
-        <div class="flash_error_message">
-            {{ session('flash_error_message') }}
+    @if(session('error'))
+        <div class="error">
+            {{ session('error') }}
         </div>
     @endif
     
@@ -137,7 +137,9 @@
                     </label>
                 </td>
             </tr>
-            <div class="button"><button class="reg" type="submit">登録</button></div>
+            <div class="button">
+                <button class="reg" type="submit">登録</button>
+            </div>
         </table>
     </form>
 </body>
