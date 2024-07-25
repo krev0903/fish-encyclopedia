@@ -9,6 +9,8 @@ use App\Models\Temp;
 use App\Models\Food;
 use App\Models\Difficulty;
 use App\Models\FishEncyclopedia;
+use App\Http\Requests\LoginFormRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class FishEncyclopediaController extends Controller
@@ -18,7 +20,6 @@ class FishEncyclopediaController extends Controller
         $fish_encyclopedias = FishEncyclopedia::where('category_id', '1')->get();
         return view('fish-encyclopedia.list.fresh', compact('fish_encyclopedias'));
     }
-
     public function sea()
     {
         $fish_encyclopedias = FishEncyclopedia::where('category_id', '2')->get();
@@ -71,7 +72,7 @@ class FishEncyclopediaController extends Controller
         ]);
 
             $file = $request->file('image_path');
-            $path = $file->store('images', 'public');
+            $path = $file->store('images','public');
       
         $result = FishEncyclopedia::create([
             'name'            => $request->name,
@@ -87,9 +88,9 @@ class FishEncyclopediaController extends Controller
         ]);
 
         if (!empty($result)){
-            session()->flash('flash_message','登録しました。');
+            session()->flash('message','登録しました。');
         } else {
-            session()->flash('flash_error_message','登録出来ませんでした。');
+            session()->flash('error','登録出来ませんでした。');
         }       
 
         return redirect()->route('registration');

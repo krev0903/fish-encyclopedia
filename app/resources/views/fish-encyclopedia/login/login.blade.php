@@ -26,7 +26,7 @@
       @endif
 
         @if(session('login_error'))
-        <div class="flash_error_message">
+        <div class="error">
             {{ session('login_error') }}
         </div>
         @endif

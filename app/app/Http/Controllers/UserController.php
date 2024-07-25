@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\LoginFormRequest;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\LoginFormRequest;
 use App\Models\User;
 
 class UserController extends Controller
@@ -28,12 +29,21 @@ class UserController extends Controller
         if (Auth::attempt($credentials)){
             $request->session()->regenerate();
 
-            return redirect()->route('user')->with("login_success","ログインに成功しました！");
+            return redirect()->route('user')->with('login_success','ログインに成功しました！');
         }
         return back()->withErrors([
             'login_error' => 'メールアドレスかパスワードが間違っています。',
         ]);
     }
 
-
+    public function logout(Request $request): RedirectResponse
+    {
+        Auth::logout();
+    
+        $request->session()->invalidate();
+    
+        $request->session()->regenerateToken();
+    
+        return redirect()->route('/')->with("logout","ログアウトしました！");
+    }
 }

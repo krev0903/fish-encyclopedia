@@ -19,12 +19,15 @@
 
     @include('fish-encyclopedia.parts.header')
     
-    <div class="hero">
-        
-        
+    @if(session('logout'))
+        <div class="message">
+            {{ session('logout') }}
+        </div>
+    @endif
+
+    <div class="hero">       
         <h1>みんなの<br>熱帯魚図鑑</h1>
         <img src="{{ asset('images/logo10.png') }}" alt="Logo">
-
     </div>
 
     <section class="select">
@@ -41,7 +44,6 @@
                 <div class="name">海水魚</div>
                 <img src="{{ asset('images/sea.png') }}" alt="sea">
             </div>
-
         </a>
         
         <a class="button" href="{{ route('brackish') }}">
@@ -58,6 +60,5 @@
     <footer>
         <small>©Produced by sk</small>
     </footer>
-    
 </body>
 </html>
