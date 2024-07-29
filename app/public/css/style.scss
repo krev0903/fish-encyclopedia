@@ -1,3 +1,5 @@
+@media screen and (max-width:768px){}
+
 // base/////////////////////////////////////////////////////////////////////////////
 body{
     font-size: 15px;
@@ -22,174 +24,131 @@ label,input,textarea,select,button{
     opacity: 0.4;
     color: darkgreen;
 }
-///////////////////////////////////////////////////////////////////////////////
+
+//main/////////////////////////////////////////////////////////////////////////////
 .hero{
-    background-image: url('/images/hero1.jpg');
+    background-image: url('/images/hero3.jpg');
     background-size: cover; /* 画像をコンテナに合わせてカバーする */
     background-repeat: no-repeat; /* 画像を繰り返ししない */
     height: 800px; /* 要素の高さ */
-
     display: flex;
     h1{
         color: #333;
         font-weight: 700;
         font-family: "M PLUS Rounded 1c", sans-serif;
         font-size:140px;
-        margin-top: 50px;
         margin-left: 50px;
         -webkit-text-stroke: 2px #ffff;
     }
     img{
         height: 550px;
         width: auto;
-        transform: translate(100px,160px);
+        justify-content: center;
+        margin-left: 50px;
+        margin-top: 150px;
     }
 }
-
-a{
-    text-decoration: none;
-    font-size: 50px;
-    color: #333;
-    font-weight: bold;
-    text-align: center;
+@media screen and (max-width:768px){
+    .hero{
+        display: block;
+        height: 300px;
+        h1{
+            font-size:60px;
+            -webkit-text-stroke: 1px #ffff;
+        }
+        img{
+            height: 120px;
+            width: auto;
+            margin-left: auto;
+            margin-right: 5%;
+            margin-top: -10px;
+        }
+    }
 }
 
 .select{
     display: flex;
-    
+    font-size: 50px;
+    text-align: center;
     .button{
         margin: 20px 50px;
-
+        // width: auto;
         .flesh{
             img{
                 height: 130px;
-                width: auto;
+                transition: all 0.2s;
+                &:hover{
+                    transform: translate(80px,0px);
+                }
             }
         }
-        .see{
+        .sea{
             img{
                 height: 190px;
-                width: auto;
+                transition: all 0.2s;
+                &:hover{
+                    transform: translate(80px,0px);
+                }
             }
         }
         .brackish{
             img{
                 height: 160px;
-                width: auto;
+                transition: all 0.2s;
+                &:hover{
+                    transform: translate(80px,0px);
                 }
+            }
         }
     }
 }
 
-.registration{
-    display: block;
-    text-align: center;
-    background-color: #333;
-    color: #ffff;
-    border-radius: 10px;
-    box-shadow: 5px;
-    // width: 120px;
-    margin: 20px 630px;
+//レスポンシブ
+@media screen and (max-width:768px){
+    .select{
+        display: block;
+        font-size: 20px;
+        .button{
+            margin: 20px 50px;
+            .flesh{
+                img{
+                    height: 80px;
+                }
+            }
+            .sea{
+                img{
+                    height: 130px;
+                }
+            }
+            .brackish{
+                img{
+                    height: 120px;
+                    }
+            }
+        }
+    }
+}
+.link{
+    .registration{
+        font-size: 30px;
+        margin: 0 auto;
+        padding: 5px 15px;
+        display: block;
+        background-color: #333;
+        color: #ffff;
+        border-radius: 10px;
+        box-shadow: 5px;
+        transition: all 0.2s;
+        &:hover{
+            font-size: 35px;
+        }
+    }
 }
 
-
 footer{
+    margin-top: 20px;
     background-color: #333;
     small{
         color: #ffff;
-    }
-}
-
-// registration/////////////////////////////////////////////////////
-
-.title-r{//登録の文字
-    font-size: 50px;
-    text-align: center;
-}
-
-.form{
-    font-size: 20px;
-
-    .table{//登録フォーム全体
-        margin: 0 auto;
-        border: 2px solid #7f94af;
-        td{
-            padding: 20px;
-
-            .input{//テキストボックス
-                min-width: 300px;
-                padding: 5px;
-                border-radius: 10px;
-            }
-            .radio{//ラジオ全体
-                display: flex;
-                align-items: center;
-                flex-wrap: wrap;
-                
-                .radio-input,
-                .radio-label {
-                    display: inline-block;
-                    margin-right: 15px;
-                }
-            }
-            textarea{//テキストエリア
-                min-width: 300px;
-                min-height: 100px;
-                border-radius: 10px;
-            }
-        }
-        // .pull{}
-    }
-}
-
-.button{//ボタン
-    margin-top: 20px;
-    text-align: center;
-    .reg{
-        color: #ccc;
-        font-size: 30px;
-        font-weight: bold;
-        background-color: #333;
-        border-radius: 10px;
-    }
-}
-
-// list///////////////////////////////////////////////////////////
-
-.fish{
-    .title{
-        border: 5px #333;
-        font-size: 50px
-    }
-    ul{
-        list-style: none;
-        li{
-            a{
-                margin: 10px;
-                padding: 15px;
-                min-height: 140px;
-                display: flex;
-                align-items: center;
-                background-color: #fff;
-                border: solid 3px #cfcac7;
-                color: #000;
-                text-decoration: none;
-                align-content: center;
-                img{
-                    height: 100px;
-                    width: auto;
-                }
-                dl{
-                    margin-left: 40px;
-                    dt{
-                        font-size: 30px;
-                    }
-                    dd{
-                        text-align: left;
-                        font-size: 20px;
-                    }
-                }
-            }
-        }
     }
 }

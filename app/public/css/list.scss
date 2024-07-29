@@ -1,34 +1,80 @@
+body{
+    font-size: 15px;
+    line-height: 1.5;
+    color: #333;   
+    font-family: "M PLUS 1p","Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+}
+label,input,textarea,select,button{
+    cursor: pointer;
+}
+
+.title{
+    text-align: center;
+    font-weight: bold;
+    font-size: 50px
+}
+
 .fish{
-    .title{
-        border: 5px #333;
-        font-size: 50px
-    }
     ul{
         list-style: none;
         li{
+            width: 70%;
+            margin: 0 auto;
+            // text-align: center;
+            .fresh{
+                border: solid 3px #FF4A6D;
+            }
+            .sea{
+                border: solid 3px #3B88EB;
+            }
+            .brackish{
+                border: solid 3px #4ADE80;
+            }
             a{
-                margin: 10px;
+                margin: 10px 0px;
                 padding: 15px;
-                min-height: 140px;
+                // min-height: 140px;
                 display: flex;
                 align-items: center;
                 background-color: #fff;
-                border: solid 3px #cfcac7;
-                color: #000;
+                color: #333;
                 text-decoration: none;
-                align-content: center;
                 img{
-                    height: 100px;
-                    width: auto;
+                    margin-left: 40px;
+                    height: auto;
+                    width: 120px;
                 }
                 dl{
-                    margin-left: 40px;
+                    margin-left: 20px;
                     dt{
                         font-size: 30px;
                     }
                     dd{
                         text-align: left;
                         font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:768px){
+    .fish{
+        ul{
+            li{
+                width: 90%;
+                a{
+                    img{
+                        margin-left: 0px;
+                    }
+                    dl{
+                        margin-left: 10px;
+                        dt{
+                            font-size: 25px;
+                        }
+                        dd{
+                            font-size: 15px;
+                        }
                     }
                 }
             }

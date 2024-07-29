@@ -55,7 +55,9 @@
         
     </section>
 
-    <a class="registration" href="{{ route('registration') }}">登録</a>
+    <a class="link" href="{{ route('registration') }}">
+        <button class="registration">登録</button>
+    </a>
 
     <footer>
         <small>©Produced by sk</small>

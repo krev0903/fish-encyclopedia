@@ -10,14 +10,14 @@
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
-    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/formstyle.css')}}">
 
 </head>
 <body>
 
     @include('fish-encyclopedia.parts.header')
 
-    <h1 class="title-r">登録</h1>
+    <h1 class="title">登録</h1>
 
     @if(session('message'))
         <div class="message">
@@ -29,14 +29,14 @@
             {{ session('error') }}
         </div>
     @endif
-    
+             
     <form class="form" action="{{ route('store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <table class="table">
             <tr>
                 <td>
                     <label>名前：
-                        <input class="input" type="text" id="name" name="name">
+                        <input class="input" type="text" id="name" name="name" placeholder="Name" autofocus>
                         @if($errors->has('name')) <span class="error">{{$errors->first('name')}}</span>@endif
                     </label>
                 </td>
@@ -45,7 +45,7 @@
             <tr>
                 <td>
                     <label>学名：
-                        <input class="input" type="text" id="scientific_name" name="scientific_name">
+                        <input class="input" type="text" id="scientific_name" name="scientific_name" placeholder="Scientific Name">
                         @if($errors->has('scientific_name')) <span class="error">{{$errors->first('scientific_name')}}</span>@endif
                     </label>
                 </td>
@@ -53,25 +53,27 @@
 
             <tr>
                 <td>
-                    <label for="category">カテゴリー：</label>
+                    <label class="category" for="category">カテゴリー：
                     <div class="radio">
                         @foreach($categories as $category)
                             <input class="radio-input" type="radio" name="category" id="category_{{ $category->id }}" value="{{ $category->id }}">
                             <label class="radio-label" for="category_{{ $category->id }}">{{ $category->name }}</label>
                         @endforeach                    
                     </div>
+                    </label>
                 </td>
             </tr>
 
             <tr>
                 <td>
-                    <label for="food">餌：</label>
+                    <label for="food">餌：
                     <div class="checkbox">
                         @foreach($foods as $food)
                             <input class="checkbox-input" type="checkbox" name="food" id="food_{{ $food->id }}" value="{{ $food->id }}">
                             <label class="checkbox-label" for="food_{{ $food->id }}">{{ $food->name }}</label>
                         @endforeach                    
                     </div>
+                    </label>
                 </td>
             </tr>
 
@@ -113,8 +115,8 @@
 
             <tr>
                 <td>
-                    <label>説明：
-                        <textarea name="description" id="description" cols="30"  rows="10"></textarea>
+                    <label class="detail">説明：
+                        <textarea name="description" id="description" cols="30"  rows="10" placeholder="Detail"></textarea>
                         @if($errors->has('description')) <span class="error">{{$errors->first('description')}}</span>@endif
                     </label>
                 </td>
@@ -123,7 +125,7 @@
             <tr>
                 <td>
                     <label>値段：
-                        <input class="input" type="text" id="price" name="price">
+                        <input class="input" type="text" id="price" name="price" placeholder="price">
                         @if($errors->has('price')) <span class="error">{{$errors->first('price')}}</span>@endif
                     </label>
                 </td>
@@ -137,10 +139,10 @@
                     </label>
                 </td>
             </tr>
-            <div class="button">
-                <button class="reg" type="submit">登録</button>
-            </div>
         </table>
+        <div class="button">
+            <button class="reg" type="submit">登録</button>
+        </div>
     </form>
 </body>
 </html>
