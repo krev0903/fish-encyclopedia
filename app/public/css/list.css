@@ -1,28 +1,52 @@
-.fish .title {
-  border: 5px #333;
+body {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #333;
+  font-family: "M PLUS 1p", "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+}
+
+label, input, textarea, select, button {
+  cursor: pointer;
+}
+
+.title {
+  text-align: center;
+  font-weight: bold;
   font-size: 50px;
 }
+
 .fish ul {
   list-style: none;
 }
+.fish ul li {
+  width: 70%;
+  margin: 0 auto;
+}
+.fish ul li .fresh {
+  border: solid 3px #FF4A6D;
+}
+.fish ul li .sea {
+  border: solid 3px #3B88EB;
+}
+.fish ul li .brackish {
+  border: solid 3px #4ADE80;
+}
 .fish ul li a {
-  margin: 10px;
+  margin: 10px 0px;
   padding: 15px;
-  min-height: 140px;
   display: flex;
   align-items: center;
   background-color: #fff;
-  border: solid 3px #cfcac7;
-  color: #000;
+  color: #333;
   text-decoration: none;
-  align-content: center;
 }
 .fish ul li a img {
-  height: 100px;
-  width: auto;
+  margin-left: 40px;
+  height: auto;
+  width: 120px;
 }
 .fish ul li a dl {
-  margin-left: 40px;
+  margin-left: 20px;
 }
 .fish ul li a dl dt {
   font-size: 30px;
@@ -30,4 +54,22 @@
 .fish ul li a dl dd {
   text-align: left;
   font-size: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .fish ul li {
+    width: 90%;
+  }
+  .fish ul li a img {
+    margin-left: 0px;
+  }
+  .fish ul li a dl {
+    margin-left: 10px;
+  }
+  .fish ul li a dl dt {
+    font-size: 25px;
+  }
+  .fish ul li a dl dd {
+    font-size: 15px;
+  }
 }/*# sourceMappingURL=list.css.map */

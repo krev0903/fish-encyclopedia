@@ -13,7 +13,7 @@ Route::get('fresh',[FishEncyclopediaController::class,'fresh'])->name('fresh');
 Route::get('sea',[FishEncyclopediaController::class,'sea'])->name('sea');
 Route::get('brackish',[FishEncyclopediaController::class,'brackish'])->name('brackish');
 Route::get('pro_fresh/{id}',[FishEncyclopediaController::class,'create'])->name('pro_fresh');
-Route::get('login',[UserController::class,'login'])->name('login');
+Route::get('showLogin',[UserController::class,'showLogin'])->name('showLogin');
 Route::post('send',[UserController::class,'send'])->name('send');
 
 Route::group(['middleware'=> ['auth']],function(){

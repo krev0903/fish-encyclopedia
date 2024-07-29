@@ -24,7 +24,7 @@ label, input, textarea, select, button {
 }
 
 .hero {
-  background-image: url("/images/hero1.jpg");
+  background-image: url("/images/hero3.jpg");
   background-size: cover; /* 画像をコンテナに合わせてカバーする */
   background-repeat: no-repeat; /* 画像を繰り返ししない */
   height: 800px; /* 要素の高さ */
@@ -35,138 +35,101 @@ label, input, textarea, select, button {
   font-weight: 700;
   font-family: "M PLUS Rounded 1c", sans-serif;
   font-size: 140px;
-  margin-top: 50px;
   margin-left: 50px;
   -webkit-text-stroke: 2px white;
 }
 .hero img {
   height: 550px;
   width: auto;
-  transform: translate(100px, 160px);
+  justify-content: center;
+  margin-left: 50px;
+  margin-top: 150px;
 }
 
-a {
-  text-decoration: none;
-  font-size: 50px;
-  color: #333;
-  font-weight: bold;
-  text-align: center;
+@media screen and (max-width: 768px) {
+  .hero {
+    display: block;
+    height: 300px;
+  }
+  .hero h1 {
+    font-size: 60px;
+    -webkit-text-stroke: 1px white;
+  }
+  .hero img {
+    height: 120px;
+    width: auto;
+    margin-left: auto;
+    margin-right: 5%;
+    margin-top: -10px;
+  }
 }
-
 .select {
   display: flex;
+  font-size: 50px;
+  text-align: center;
 }
 .select .button {
   margin: 20px 50px;
 }
 .select .button .flesh img {
   height: 130px;
-  width: auto;
+  transition: all 0.2s;
 }
-.select .button .see img {
+.select .button .flesh img:hover {
+  transform: translate(80px, 0px);
+}
+.select .button .sea img {
   height: 190px;
-  width: auto;
+  transition: all 0.2s;
+}
+.select .button .sea img:hover {
+  transform: translate(80px, 0px);
 }
 .select .button .brackish img {
   height: 160px;
-  width: auto;
+  transition: all 0.2s;
+}
+.select .button .brackish img:hover {
+  transform: translate(80px, 0px);
 }
 
-.registration {
+@media screen and (max-width: 768px) {
+  .select {
+    display: block;
+    font-size: 20px;
+  }
+  .select .button {
+    margin: 20px 50px;
+  }
+  .select .button .flesh img {
+    height: 80px;
+  }
+  .select .button .sea img {
+    height: 130px;
+  }
+  .select .button .brackish img {
+    height: 120px;
+  }
+}
+.link .registration {
+  font-size: 30px;
+  margin: 0 auto;
+  padding: 5px 15px;
   display: block;
-  text-align: center;
   background-color: #333;
   color: white;
   border-radius: 10px;
   box-shadow: 5px;
-  margin: 20px 630px;
+  transition: all 0.2s;
+}
+.link .registration:hover {
+  font-size: 35px;
 }
 
 footer {
+  margin-top: 20px;
   background-color: #333;
 }
 footer small {
   color: white;
-}
-
-.title-r {
-  font-size: 50px;
-  text-align: center;
-}
-
-.form {
-  font-size: 20px;
-}
-.form .table {
-  margin: 0 auto;
-  border: 2px solid #7f94af;
-}
-.form .table td {
-  padding: 20px;
-}
-.form .table td .input {
-  min-width: 300px;
-  padding: 5px;
-  border-radius: 10px;
-}
-.form .table td .radio {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.form .table td .radio .radio-input,
-.form .table td .radio .radio-label {
-  display: inline-block;
-  margin-right: 15px;
-}
-.form .table td textarea {
-  min-width: 300px;
-  min-height: 100px;
-  border-radius: 10px;
-}
-
-.button {
-  margin-top: 20px;
-  text-align: center;
-}
-.button .reg {
-  color: #ccc;
-  font-size: 30px;
-  font-weight: bold;
-  background-color: #333;
-  border-radius: 10px;
-}
-
-.fish .title {
-  border: 5px #333;
-  font-size: 50px;
-}
-.fish ul {
-  list-style: none;
-}
-.fish ul li a {
-  margin: 10px;
-  padding: 15px;
-  min-height: 140px;
-  display: flex;
-  align-items: center;
-  background-color: #fff;
-  border: solid 3px #cfcac7;
-  color: #000;
-  text-decoration: none;
-  align-content: center;
-}
-.fish ul li a img {
-  height: 100px;
-  width: auto;
-}
-.fish ul li a dl {
-  margin-left: 40px;
-}
-.fish ul li a dl dt {
-  font-size: 30px;
-}
-.fish ul li a dl dd {
-  text-align: left;
-  font-size: 20px;
 }/*# sourceMappingURL=style.css.map */

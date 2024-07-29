@@ -17,14 +17,15 @@
     
     @include('fish-encyclopedia.parts.header')
     
-    <div class="container">
+
+    <h1 class="title">@yield('title')</h1>
+
         <section class="fish">
-            <h1 class="title">@yield('title')</h1>
             <ul>
                 <li>
                     @yield('content')
                     @foreach( $fish_encyclopedias as $fish_encyclopedia )
-                    <a href="{{ route('pro_fresh',['id'=>$fish_encyclopedia->id])}}">
+                    <a class="@yield('class')" href="{{ route('pro_fresh',['id'=>$fish_encyclopedia->id])}}">
                     <img src="{{ asset('storage/' . $fish_encyclopedia->image_path) }}" alt="fish-image">
                     <dl>
                         <dt>{{ $fish_encyclopedia ->name}}</dt>
@@ -37,7 +38,6 @@
                 </li>
             </ul>
         </section>
-    </div>
     
 </body>
 </html>

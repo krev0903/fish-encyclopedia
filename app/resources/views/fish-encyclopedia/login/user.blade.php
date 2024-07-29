@@ -9,9 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/user.css') }}">
 
-    <title></title>
+    <title>user</title>
 </head>
 <body>
 
@@ -21,12 +21,25 @@
 
     <x-alert type="message" :session="session('login_success')"/>
 
-    <ul>
-        <li>名前：{{ Auth::user()->name }}</li>
-        <li>メールアドレス：{{ Auth::user()->email }}</li>
-    </ul>
+    <table>
+        <tr class="name">
+            <th>名前：</th>
+            <td>{{ Auth::user()->name }}</td>
+        </tr>
+        
+        <tr  class="email">
+            <th>メールアドレス：</th>
+            <td>{{ Auth::user()->email }}</td>
+        </tr>
+    </table>
     
-    <form action="{{route('logout')" method="POST">
+    <a class="button" href="{{ route('registration') }}">
+        <button>登録</button>
+    </a>
+    <a class="button" href="">
+        <button>変更</button>
+    </a>
+    <form class="button" action="{{route('logout')" method="POST">
     @csrf
         <button>ログアウト</button>
     </form>

@@ -1,0 +1,29 @@
+.title {
+  margin: 30px 0;
+  font-weight: bold;
+  font-size: 50px;
+  text-align: center;
+}
+
+table {
+  margin: 20px auto;
+}
+table .name th, table .email th {
+  font-size: 20px;
+  margin: 10px;
+}
+table .name td, table .email td {
+  font-size: 30px;
+}
+
+.button {
+  text-align: center;
+}
+.button button {
+  color: #ccc;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: hsl(0, 0%, 20%);
+  border-radius: 10px;
+  padding: 5px 15px;
+}/*# sourceMappingURL=user.css.map */

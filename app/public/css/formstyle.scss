@@ -1,0 +1,86 @@
+.title{
+    margin: 30px 0;
+    font-weight: bold;
+    font-size: 50px;
+    text-align: center;
+}
+
+form{
+    font-size: 20px;
+    table{//フォーム全体
+        margin: 0 auto;
+        border: 2px solid #7f94af;
+        td{
+            padding: 10px;
+            label{
+                .input{//テキストボックス
+                    min-width: 300px;
+                    padding: 5px;
+                    border: 1px solid #7f94af;
+                    border-radius: 10px;
+                }
+                .radio,.checkbox{//ラジオとチェックボックス全体 登録のみ
+                    margin-top: -30px;
+                    margin-bottom: 0px;
+                    label{
+                        margin-right: 20px;
+                    }
+                }
+                textarea{//テキストエリア 登録のみ
+                    vertical-align: top; /* 上揃え */
+                    min-width: 300px;
+                    min-height: 100px;
+                    border: 1px solid #7f94af;
+                    border-radius: 10px;
+                }
+            }
+        }
+            
+        // .pull{プルダウン用}
+    }
+    div{//ボタン
+        margin: 20px;
+        text-align: center;
+        button{
+            color: #ccc;
+            font-size: 30px;
+            font-weight: bold;
+            background-color: #333;
+            border-radius: 10px;
+            padding: 5px 15px;
+            // transition: all 0.2s;
+            // &:hover{
+            //     font-size: 35px;
+            // }
+        }
+    }
+}
+
+@media screen and (max-width:768px){
+    form{
+        table{
+            td{
+                label{
+                    .input{
+                        min-width: 300px;
+                        padding: 5px;
+                        border-radius: 10px;
+                    }
+                    .radio,.checkbox{
+                        margin-top: 0px;
+                        margin-bottom: 0px;
+                        label{
+                            margin-right: 20px;
+                        }
+                    }
+                    textarea{
+                        min-width: 300px;
+                        min-height: 100px;
+                        border-radius: 10px;
+                    }
+                }
+            }
+            // .pull{プルダウン用}
+        }
+    }
+}

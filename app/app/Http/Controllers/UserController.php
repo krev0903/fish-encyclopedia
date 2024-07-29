@@ -10,9 +10,9 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    public function login()
+    public function showLogin()
     {
-        return view('fish-encyclopedia.login.login');
+        return view('fish-encyclopedia.login.showLogin');
     }
     public function user()
     {
