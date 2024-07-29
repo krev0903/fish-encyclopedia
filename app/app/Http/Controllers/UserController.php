@@ -44,6 +44,6 @@ class UserController extends Controller
     
         $request->session()->regenerateToken();
     
-        return redirect()->route('/')->with("logout","ログアウトしました！");
+        return redirect()->route('home')->with("logout","ログアウトしました！");
     }
 }

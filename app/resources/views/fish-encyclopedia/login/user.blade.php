@@ -39,7 +39,7 @@
     <a class="button" href="">
         <button>変更</button>
     </a>
-    <form class="button" action="{{route('logout')" method="POST">
+    <form class="button" action="{{ route('logout') }}" method="POST">
     @csrf
         <button>ログアウト</button>
     </form>
