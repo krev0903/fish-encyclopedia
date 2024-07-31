@@ -14,6 +14,7 @@
             <a class="hover:text-blue-500 transition-all duration-300" href="{{ route('brackish') }}">汽水魚</a>
             <a class="hover:text-blue-500 transition-all duration-300" href="{{ route('registration') }}">登録</a>
             <a class="hover:text-blue-500 transition-all duration-300" href="{{ route('showLogin') }}">ログイン</a>
+            <a class="hover:text-blue-500 transition-all duration-300" href="{{ route('register') }}">新規登録</a>
         </div>
     </nav>
 </header>
