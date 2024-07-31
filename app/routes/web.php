@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\FishEncyclopediaController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\UserController;
 use App\Models\FishEncyclopedia;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',function () {
@@ -15,6 +17,8 @@ Route::get('brackish',[FishEncyclopediaController::class,'brackish'])->name('bra
 Route::get('pro_fresh/{id}',[FishEncyclopediaController::class,'create'])->name('pro_fresh');
 Route::get('showLogin',[UserController::class,'showLogin'])->name('showLogin');
 Route::post('send',[UserController::class,'send'])->name('send');
+Route::get('register',[RegisterController::class,'showRegistrationForm'])->name('register');
+Route::post('register',[RegisterController::class,'register'])->name('register');
 
 Route::group(['middleware'=> ['auth']],function(){
     Route::get('user',[UserController::class,'user'])->name('user');
